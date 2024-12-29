@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+void main() {
+
+  runApp(
+
+      MyApp()
+
+  );
+
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // in Hot Reload,
+  // Instead of compiling all the code and link everything together.
+  // it just call build method, to rebuild MaterialApp with scaffold. 
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: Container(
+          child: Center(
+            child: Text('Container Widget'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+

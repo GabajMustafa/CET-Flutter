@@ -1,0 +1,12 @@
+// Testing Hot Reload
+void main() {
+
+  runApp(
+      MaterialApp(
+          home: Scaffold(
+            backgroundColor: Colors.red,
+            body: Container(),
+            ),
+      ),
+  );
+}

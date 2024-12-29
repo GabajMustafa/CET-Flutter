@@ -1,0 +1,89 @@
+//Container can be used to lay out our apps
+// It is similar to DIV.
+// You can position it and move it around the screen.
+// it has child property to display such is an image or a piece of text.
+// Containers with no children try to be as big as possible unless the 
+//incoming constraints are unbounded, in which case they try to be as small 
+//as possible. Containers with children size themselves to their children.
+// Container shrinks to the size of the child widget
+
+import 'package:flutter/material.dart';
+
+void main() {
+
+  runApp(
+
+      MyApp()
+
+  );
+
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+	// Container shrinks to the size of the child widget
+	// The Container will be appeared onthe right top corner of screen
+	// As you see the container shrinks in as big the size of child widget 
+	// In iPhone screen you will notice the small part of Text Widget getting hidden, 
+	// To solve that we use SafeArea to display widget in correct way without amputation. 
+        body: Container(
+          color: Colors.white,
+          child: Text('I love Flutter'),
+        ),
+      ),
+    );
+  }
+}
+
+// Here We use SafeArea
+
+import 'package:flutter/material.dart';
+
+void main() {
+
+  runApp(
+
+      MyApp()
+
+  );
+
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Container(
+            color: Colors.white,
+            child: Text('I love Flutter'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

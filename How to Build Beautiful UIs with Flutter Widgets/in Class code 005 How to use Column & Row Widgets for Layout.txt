@@ -1,0 +1,537 @@
+// As you know we used Container to layout a single widget such as 
+// Text Widget or Image Widget and else.
+// Supposed you have different things that you need to layout relative to each other.
+// You need to user another container that can take lots of children.
+// We can do that by using Column or Row Widgets. 
+
+// Code 01: Column has one Container and 
+// it will take all the way of scaffold vertically.
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------------------
+// Code 02: Column has multiple Containers and 
+// in the same time the Column will shrink it's size depend on 
+// how many widgets it has. 
+// Shrinking goes vertically.
+// when we use mainAxisSize: MainAxisSize.min, the column shrinks to fit the children. 
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            // The Column actually shrinks to be the size
+            // that's only required to fit three containers
+            // all of the children
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------------------
+// Code 03 : Column has multiple Containers.
+// Using verticalDirection: VerticalDirection.up
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            // Determines the order to lay children out vertically
+            // and how to interpret start and end in the vertical direction.
+            // Layout the Children Widgets in the bottom of screen in reverse order.
+            // In other words the empty area will be shifted to the top of screen.
+            verticalDirection: VerticalDirection.up,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------------------
+// Code 04 : Column has multiple Containers.
+// Using verticalDirection: VerticalDirection.down
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            // Determines the order to lay children out vertically
+            // and how to interpret start and end in the vertical direction.
+            // Defaults to VerticalDirection.down.
+	    // Lists Widgets from top to bottom.
+            verticalDirection: VerticalDirection.down,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------------------
+// Code 05
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            // Change the spacing between the widgets
+            // It works as verticalDirection: VerticalDirection.down
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------------------
+// Code 06 : Demonstrate how to position the children in Column layout. 
+// To test them individual just you need to take off the comment for each one then try  
+//   	
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            // Change the spacing between the widgets
+            // The Containers will be all bunched down toward
+            // the end of MainAxis            
+	    mainAxisAlignment: MainAxisAlignment.end,
+	    // Try -------------------------
+	    // change the style to center
+	    // mainAxisAlignment: MainAxisAlignment.center,
+            // how it is going to be looks like?
+	    // Try -------------------------
+	    // Spread out widgets
+	    // Place the free space evenly between the children 
+	    // as well as before and after the first and last child.
+	    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+	    // Try -------------------------------------
+	    // Place the free space evenly between the children.
+	    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+	    // Try --------------------------------------
+	    // Place the free space evenly between the children 
+	    // as well as half of that space before and after the first and last child.
+	    // mainAxisAlignment: MainAxisAlignment.spaceAround,
+ 
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//-------------------------------------------------------------------
+// Code 07 : CrossAxisAlignment Enum
+// Aligns children along the cross axis.
+// In Flutter, Flex layout is managed using the Flex widget and its subclasses 
+// Row and Column. These widgets are used to create flexible layouts 
+// that can adjust to different screen sizes and orientations. 
+// It will not happened any change to the alignment in this code.
+// You will see the change if you make one of child width wider then others.  
+// Try with the following alignment style and see their affects.
+// CrossAxisAlignment.stretch
+// crossAxisAlignment: CrossAxisAlignment.start
+// crossAxisAlignment: CrossAxisAlignment.center,
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+              //hidden container
+              Container(
+                width: 300.0,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//-------------------------------------------------------------------
+// Code 08 : Container with infinity width
+// You can stretch all child widgets using :
+// crossAxisAlignment: CrossAxisAlignment.stretch,
+// In the same time you do not need to specify width value
+// To add spaces between widgets use SizeBox(height:20.0),
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                height: 100.0,
+                width: 100.00,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                width: 100.0,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+              //hidden container
+              Container(
+                width: double.infinity,
+		height: 10.00,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//-------------------------------------------------------------------
+// Code 09 : Everything was applied to Column you can do it with Row Layout
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 100.0,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 100.00,
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+                height: 100.00,
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+              //hidden container
+              Container(
+                height: 10.00,
+                color: Colors.black,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+//------------------------------------------------------------------
+// Row Layout
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: SafeArea(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                width: 30.0,
+                color: Colors.white,
+                child: Text('Container s'),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Container(
+
+                color: Colors.blue,
+                child: Text('Container 2'),
+              ),
+              Container(
+
+                color: Colors.red,
+                child: Text('Container 3'),
+              ),
+              //hidden container
+              Container(
+                child: Text('Container 4'),
+                color: Colors.yellowAccent,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
