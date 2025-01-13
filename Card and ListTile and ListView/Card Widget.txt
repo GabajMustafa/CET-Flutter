@@ -1,0 +1,65 @@
+// Card Widget:
+// Is a Material Design widget.
+// It's used to represent related pieces of information,
+// usually contained in what we call a card.
+// A Card can contain anything, from Text and Icons to Images and Buttons, 
+// as long as they're enclosed in a displayable Widget like a Column or a Row.
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mastering Card Widget in Flutter'),
+        ),
+        body: Center(
+          child: Card(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('Hello, Flutter Developers!'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// The code snippet below shows a Card with its color changed to teal 
+// and elevation increased to 10. The elevation property affects 
+// the size of the shadow appearing beneath the Card.
+// Notes : To try this code replace it with the card code in the above code.
+Card(
+  color: Colors.teal,
+  elevation: 10.0,
+  child: Padding(
+    padding: EdgeInsets.all(16.0),
+    child: Text('Hello, Flutter Developers!'),
+  ),
+)
+// Cards are not confined to just Text. They can hold more complex widgets.
+// The following code snippet illustrates a Card containing an Image, 
+// Title, and a Button. 
+//This showcases how you can begin constructing more elaborate and interactive Cards.
+
+Card(
+  child: Column(
+    children: <Widget>[
+      Image.asset('images/natural02.jpeg'),
+      Text('Amazing Flutter Tutorial'),
+      FlatButton(
+        child: Text('Learn More'),
+        onPressed: () {
+          // Perform some action
+        },
+      ),
+    ],
+  ),
+)

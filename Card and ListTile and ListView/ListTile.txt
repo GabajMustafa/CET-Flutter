@@ -1,0 +1,63 @@
+// ListTile
+// The ListTile widget in Flutter is a UI element that displays related information.
+// It follows the List specification from Material Design. 
+// A typical ListTile is divided into three sections; 
+// Start, Center, and End. 
+// The Start section contains the leading widget; 
+// the Center section includes the title and subtitle, 
+// and the End section contains the trailing widget.
+
+/*
+	Start					End
+.---------------..---------------------..----------------.
+|		|| Title	       ||		||
+|      Icons	|| Subtitle            ||	>	||
+|		||		       ||		||
+|		||		       ||		||
+.---------------..---------------------..----------------.
+      Leading		Center		     Trailing
+
+
+It is mainly used to populate the scrollable views such as ListView, 
+Column, and Row. For example, you can use the ListTile to show a list of to-do items, emails, navigation options, and more. You can also receive the click event by tapping the ListTile.
+
+Combining Card and ListTile :
+   You can combine Card and ListTile widgets to create 
+   more complex and visually appealing UIs.
+
+Conclusion :
+ The Card and ListTile widgets are powerful tools in Flutter 
+ for creating user-friendly and visually appealing interfaces. 
+ By combining them, you can design complex layouts 
+ that are both functional and attractive.
+
+*/
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mastering Card Widget in Flutter'),
+        ),
+        body: Center(
+          child: Card(
+            color: Colors.green.shade400,
+            child: ListTile(
+              leading: Icon(Icons.car_rental),
+              title: Text('Car'),
+              trailing: Icon(Icons.more_vert),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
