@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+class MyColumn extends StatelessWidget {
+  final IconData ico;
+  final String txt;
+  const MyColumn({super.key,required this.ico ,required this.txt});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CircleAvatar(child: Icon(ico),radius: 20,),
+        Text("$txt",style: TextStyle(
+            color: Colors.white),)
+      ],
+    );
+  }
+}
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double elevation = 0.0;
+  @override
+  Widget build(BuildContext context) {
+      return MaterialApp(
+      home: Scaffold(appBar: AppBar(title: Text("                           "
+          "Shopping",textAlign: TextAlign.center,)
+        ,backgroundColor: Colors.deepOrangeAccent,
+
+      ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: () => {
+                setState(() {
+                  elevation = 10.0;
+                   /*
+                     In Flutter, Future is a class for managing the results of
+                     asynchronous operations. Asynchronous programming is
+                     essential for building responsive applications,
+                     particularly when performing tasks that may take some time,
+                     such as fetching data from a server, reading from a file,
+                     or performing complex computations.
+
+                  */
+                  Future.delayed(Duration(milliseconds: 1000), () {
+                  setState(() {
+                    elevation = 0.0;
+                  });
+                  });
+                })
+              },
+              child: Card(
+                child: Image.asset("images/promotion.jpg"),
+                clipBehavior: Clip.hardEdge,
+                elevation: elevation,
+              ),
+            ),
+            Text("Shopping",style:
+
+            TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30)
+              ,),
+
+
+            Container(color: Colors.deepOrangeAccent,height: 100
+              ,child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(child: Icon(Icons.phone),radius: 20,),
+                      Text('MyCart',style: TextStyle(
+                          color: Colors.white),
+                      )
+                    ],
+                  ),
+                  SizedBox(width: 10),
+                  MyColumn(ico: Icons.grid_view, txt: "Products"),
+                  SizedBox(width: 10),
+                  MyColumn(ico: Icons.card_giftcard, txt: "Offers"),
+                  SizedBox(width: 10),
+                  MyColumn(ico: Icons.more_horiz_outlined, txt: "More")
+                ],
+              ),
+            ),
+
+
+
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
